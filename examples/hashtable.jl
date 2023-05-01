@@ -8,3 +8,20 @@ using Performance2
 # Be sure you look at the result. Then fill in the table in the README with the number of
 # collisions you observe for each table size.
 
+for tablesize in [16, 32, 64, 128]
+    table = create_hashtable(Char, tablesize)
+
+    for c in 'a':'z'
+        push_hashtable!(table, c)
+    end
+
+    num_collisions = 0
+    for bucket in table
+        if length(bucket) > 1
+            num_collisions += length(bucket) - 1
+        end
+    end
+
+    println("Table size $tablesize: $num_collisions collisions")
+end
+
