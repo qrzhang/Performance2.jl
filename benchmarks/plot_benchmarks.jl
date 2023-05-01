@@ -28,3 +28,5 @@ plot!(
     list_sizes, time_2loopshalf,
     label="unique_2loops (half distinct items)"
 )
+
+savefig("./benchmarks/Benchmarks.png")
